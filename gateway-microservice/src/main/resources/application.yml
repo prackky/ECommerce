@@ -13,3 +13,8 @@ zuul:
       cart-microservice:
          path: /cart/**
          stripPrefix: false
+management:
+   endpoints:
+      web:
+         exposure:
+            include: hystrix.stream
