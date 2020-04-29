@@ -1,16 +1,15 @@
 eureka:
-  instance:
-    hostname: localhost
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:8001/eureka/
-    registryFetchIntervalSeconds: 1
-
+   instance:
+      hostname: localhost
+   client:
+      serviceUrl:
+         defaultZone: http://localhost:8001/eureka/
+      registryFetchIntervalSeconds: 1
 zuul:
-  routes:
-    product-catalog-microservice:
-      path: /products/**
-      stripPrefix: false
-    cart-microservice:
-      path: /cart/**
-      stripPrefix: false
+   routes:
+      product-catalog-microservice:
+         path: /products/**
+         stripPrefix: false
+      cart-microservice:
+         path: /cart/**
+         stripPrefix: false
