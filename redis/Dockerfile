@@ -1,5 +1,5 @@
 FROM smebberson/alpine-redis
-MAINTAINER Venkata Ravuri <venkat@nikhu.com>
+MAINTAINER Venkata Ravuri <venkat@infogain.com>
 
 RUN apk add --update curl && \
     rm -rf /var/cache/apk/*

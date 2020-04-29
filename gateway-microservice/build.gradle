@@ -1,4 +1,4 @@
-group 'com.nikhu.ecommerce.gateway'
+group 'com.infogain.ecommerce.gateway'
 
 buildscript {
     ext {

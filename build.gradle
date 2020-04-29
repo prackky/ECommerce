@@ -1,4 +1,4 @@
-group 'com.nikhu.ecommerce'
+group 'com.infogain.ecommerce'
 version '1.0-SNAPSHOT'
 
 subprojects {
