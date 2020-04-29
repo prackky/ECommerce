@@ -21,8 +21,10 @@ import org.springframework.data.redis.core.RedisTemplate;
 public class CacheConfig extends CachingConfigurerSupport {
     private static final Logger log = LoggerFactory.getLogger(CacheConfig.class);
 
-    protected String serverHostname = "localhost";
-    protected int serverPort = 6379;
+    @Value("${redis.server.hostname: 127.0.0.1}")
+    protected String serverHostname;
+    @Value("${redis.server.port: 6379}")
+    protected int serverPort;
     @Value("${redis.cacheManager.expiration: 1800}")
     protected int cacheManagerExpiration;
 
