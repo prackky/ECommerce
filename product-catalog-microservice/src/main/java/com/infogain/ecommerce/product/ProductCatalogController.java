@@ -24,6 +24,11 @@ public class ProductCatalogController {
 	public String welcome() {
 		return "<h1>Welcome to product catalog</h1>";
 	}
+	
+	@RequestMapping("/health")
+    public String health() {
+        return "ok";
+    }
 
 	@PostMapping("/save")
 	public Product createProd(@RequestBody Product Product) {
