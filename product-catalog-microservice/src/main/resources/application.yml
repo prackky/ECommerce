@@ -1,0 +1,19 @@
+# Discovery Server Access
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    registryFetchIntervalSeconds: 1
+    serviceUrl:
+      defaultZone: http://localhost:8001/eureka/
+
+# HTTP (Tomcat) server port
+server:
+  port: 9001
+
+spring:
+  data:
+    mongodb:
+      database: products
+      port: 27018
+      host: 127.0.0.1
