@@ -86,7 +86,7 @@ public class ProductCatalogControllerTest {
 		p.setCurrency("INR");
 		p.setImage("xyx");
 		String id=productController.deleteProd("1");
-		assertEquals(id,"1");
+		assertEquals(id,"deleted product with Id :1");
 		
 	}
 
