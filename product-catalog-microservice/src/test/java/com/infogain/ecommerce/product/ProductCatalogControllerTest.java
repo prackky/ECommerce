@@ -29,14 +29,20 @@ public class ProductCatalogControllerTest {
 	    public void setUp(){
 	        MockitoAnnotations.initMocks(this);
 	    }
+	 
+	 private Product createProduct() {
+		 Product p=new Product();
+		 p.set_id("1");
+		 p.setCurrency("INR");
+		 p.setImage("xyx");
+		 return p;
+		 
+	 }
 	
 	@SuppressWarnings("unchecked")
 	@Test
     public void testcreateProd() {
-		Product p=new Product();
-		p.set_id("1");
-		p.setCurrency("INR");
-		p.setImage("xyx");
+		Product p=createProduct();
 		Mockito.when(productCatalogRepository.save(p)).thenReturn(p);
 		Product p1=productController.createProd(p);
 		assertEquals(p1.getCurrency(),"INR");
@@ -45,10 +51,7 @@ public class ProductCatalogControllerTest {
 	@Test
     public void testListProd() {
 		List<Product> productList=new ArrayList<Product>();
-		Product p=new Product();
-		p.set_id("1");
-		p.setCurrency("INR");
-		p.setImage("xyx");
+		Product p=createProduct();
 		productList.add(p);
 		Mockito.when(productCatalogRepository.findAll()).thenReturn(productList);
 		List<Product> productList1=productController.listProd();
@@ -57,10 +60,7 @@ public class ProductCatalogControllerTest {
 	
 	@Test
     public void testfindProd() {
-		Product p=new Product();;
-		p.set_id("1");
-		p.setCurrency("INR");
-		p.setImage("xyx");
+		Product p=createProduct();
 		Mockito.when(productCatalogRepository.findById(Mockito.anyString())).thenReturn(Optional.of(p));
 		Product product=productController.findProd("1");
 		assertEquals(product.getCurrency(),"INR");
@@ -68,10 +68,7 @@ public class ProductCatalogControllerTest {
 	
 	@Test
     public void testupdateProd() {
-		Product p=new Product();;
-		p.set_id("1");
-		p.setCurrency("INR");
-		p.setImage("xyx");
+		Product p=createProduct();
 		Mockito.when(productCatalogRepository.save(p)).thenReturn(p);
 		Product product=productController.updateProd(p, "1");
 		assertEquals(product.getCurrency(),"INR");
@@ -81,10 +78,7 @@ public class ProductCatalogControllerTest {
 
 	@Test
     public void testdeleteProd() {
-		Product p=new Product();;
-		p.set_id("1");
-		p.setCurrency("INR");
-		p.setImage("xyx");
+		Product p=createProduct();
 		String id=productController.deleteProd("1");
 		assertEquals(id,"deleted product with Id :1");
 		

@@ -26,40 +26,40 @@ public class CartControllerTest {
         MockitoAnnotations.initMocks(this);
     }
 	
-	@Test
-    public void testcartById() {
+	private Cart createCart() {
 		List<CartItem> cList=new ArrayList<CartItem>();
-		CartItem item=new CartItem();
 		Cart c=new Cart();
-		item.setCurrency("INR");
-		item.setId("1");
-		item.setName("test");
-		item.setPrice(10);
+		CartItem item=createCartItem();
 		cList.add(item);
 		c.setCurrency("INR");
 		c.setId("1");
 		c.setTotal(10);
 		c.setItems(cList);
-		Mockito.when(cartRepository.getCartById(Mockito.anyString())).thenReturn(c);
+		return c;
+	}
+	
+	private CartItem createCartItem() {
 		
+		CartItem item=new CartItem();
+		item.setCurrency("INR");
+		item.setId("1");
+		item.setName("test");
+		item.setPrice(10);
+		return item;
+	}
+	
+	@Test
+    public void testcartById() {
+		Cart c=createCart();
+		Mockito.when(cartRepository.getCartById(Mockito.anyString())).thenReturn(c);
 		Cart cart=cartController.cart("1");
 		assertEquals(cart.getItems().get(0).getCurrency(),"INR");
 	}
 	
 	@Test
     public void testAddToCartWithId() {
-		List<CartItem> cList=new ArrayList<CartItem>();
-		Cart c=new Cart();
-		CartItem item=new CartItem();
-		item.setCurrency("INR");
-		item.setId("1");
-		item.setName("test");
-		item.setPrice(10);
-		cList.add(item);
-		c.setCurrency("INR");
-		c.setId("1");
-		c.setTotal(10);
-		c.setItems(cList);
+		Cart c=createCart();
+		CartItem item=createCartItem();
 		Mockito.when(cartRepository.addToCart(Mockito.any(),Mockito.any())).thenReturn(c);
 		Cart cart=cartController.cart(item);
 		assertEquals(cart.getItems().get(0).getCurrency(),"INR");
@@ -67,17 +67,8 @@ public class CartControllerTest {
 	
 	@Test
     public void testAddToCartWithoutId() {
-		List<CartItem> cList=new ArrayList<CartItem>();
-		Cart c=new Cart();
-		CartItem item=new CartItem();
-		item.setCurrency("INR");
-		item.setId("1");
-		item.setName("test");
-		item.setPrice(10);
-		cList.add(item);
-		c.setCurrency("INR");
-		c.setId("1");
-		c.setTotal(10);
+		Cart c=createCart();
+		CartItem item=createCartItem();
 		Mockito.when(cartRepository.addToCart(Mockito.any(),Mockito.any())).thenReturn(c);
 		Cart cart=cartController.cart(item);
 		assertEquals(cart.getCurrency(),"INR");
