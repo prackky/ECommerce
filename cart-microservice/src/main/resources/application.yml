@@ -11,6 +11,6 @@ eureka:
 server:
   port: 9002
 
-cart:
- ribbon:
-  listOfServers: localhost:9003
+#cart:
+ #ribbon:
+  #listOfServers: localhost:9003

@@ -21,7 +21,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 @CrossOrigin
 @RestController
-@RibbonClient(name="cart")
+//@RibbonClient(name="cart")
 public class CartController extends ResponseEntityExceptionHandler {
 
     private static final Logger log = LoggerFactory.getLogger(CartController.class);

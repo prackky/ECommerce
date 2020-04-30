@@ -9,3 +9,7 @@ eureka:
 # HTTP (Tomcat) server port
 server:
    port: 9001
+   
+product:
+ ribbon:
+  listOfServers: localhost:9004

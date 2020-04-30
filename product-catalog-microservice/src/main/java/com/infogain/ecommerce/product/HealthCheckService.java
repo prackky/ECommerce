@@ -1,4 +1,4 @@
-package com.infogain.ecommerce.gateway;
+package com.infogain.ecommerce.product;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
