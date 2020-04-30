@@ -1,14 +1,10 @@
 package com.infogain.ecommerce.product;
 
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-
 import fr.javatic.mongo.jacksonCodec.objectId.Id;
 
 public class Product {
 
     @Id
-    @JsonSerialize(using = ObjectIdSerializer.class)
-    //@JsonDeserialize(using = ObjectIdDeSerializer.class)
     private String id;
     private String name;
     private String description;

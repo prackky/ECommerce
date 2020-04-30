@@ -40,8 +40,6 @@ dependencies {
     //compile group: 'org.mongodb', name: 'mongodb-driver-async', version: '3.3.0'
     compile 'fr.javatic.mongo:mongo-jackson-codec:3.2.2__0.5'
     testCompile('org.springframework.boot:spring-boot-starter-test')
-    testCompile('org.springframework.cloud:spring-cloud-starter-eureka-server')
-    compile('org.springframework.boot:spring-boot-starter-actuator')
     compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-feign', version: '1.2.7.RELEASE'
     compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-netflix-hystrix', version: '1.4.0.RELEASE'
     compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-netflix-hystrix-dashboard', version: '1.4.0.RELEASE'
