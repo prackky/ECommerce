@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.netflix.ribbon.RibbonClient;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,8 +17,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/products")
-@RibbonClient(name="product")
+/* @RibbonClient(name="product") */
 public class ProductCatalogController {
+	
+	@Value("${server.port}")
+	private int port;
 
 	@Autowired
 	ProductCatalogRepository productCatalogRepository;
@@ -29,7 +33,7 @@ public class ProductCatalogController {
 	
 	@RequestMapping("/health")
     public String health() {
-        return "ok";
+        return "ok- "+port;
     }
 
 	@PostMapping("/save")
