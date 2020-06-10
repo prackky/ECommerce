@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @FeignClient(name="cart-microservice", fallback = IhealthCheckFeignClient.HealthClientFallback.class)
 public interface IhealthCheckFeignClient {
-	@RequestMapping(value="/cart/health", method = RequestMethod.GET)
+	@RequestMapping(value="/cart/status", method = RequestMethod.GET)
 	public String getCartHealth();
 
 	
@@ -16,7 +16,7 @@ public interface IhealthCheckFeignClient {
 
 		@Override
 		public String getCartHealth(){
-            return "Status from fallback method -- cart";
+            return "fallback executed -- cart";
         }
 		
         

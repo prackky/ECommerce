@@ -31,9 +31,9 @@ public class ProductCatalogController {
 		return "<h1>Welcome to product catalog</h1>";
 	}
 	
-	@RequestMapping("/health")
+	@RequestMapping("/status")
     public String health() {
-        return "ok- "+port;
+        return "running on - "+port;
     }
 
 	@PostMapping("/save")
@@ -42,7 +42,7 @@ public class ProductCatalogController {
 		return Product;
 	}
 
-	@GetMapping("/getAll")
+	@GetMapping("/findAll")
 	public List<Product> listProd() {
 		return productCatalogRepository.findAll();
 	}

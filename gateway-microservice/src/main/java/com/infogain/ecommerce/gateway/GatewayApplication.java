@@ -11,7 +11,6 @@ import org.springframework.web.client.RestTemplate;
 
 @EnableZuulProxy
 @EnableEurekaClient
-@EnableCircuitBreaker
 @SpringBootApplication
 public class GatewayApplication {
 
